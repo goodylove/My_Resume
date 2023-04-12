@@ -6,10 +6,19 @@ type AboutProps = {
     title: string;
     body: string[];
   };
-  skill: {};
+  skills: {
+    soft: {
+      icon: string;
+      text: string;
+    }[];
+    hard: {
+      icon: string;
+      text: string;
+    }[];
+  };
 };
 
-const AboutMe = ({ data, skill }: AboutProps) => {
+const AboutMe = ({ data, skills }: AboutProps) => {
   const { title, body } = data;
   const id = useId();
   return (
@@ -18,7 +27,7 @@ const AboutMe = ({ data, skill }: AboutProps) => {
       {body?.map((el, i) => (
         <p key={`${id}_${i}`}>{el}</p>
       ))}
-      <Skill data={skill} />
+      <Skill data={skills} />
     </div>
   );
 };
