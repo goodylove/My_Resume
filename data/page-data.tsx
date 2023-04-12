@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Nwachukwu Goodness",
-  role: "Software Developer",
+  role: "FrontEnd Developer",
   education: [
     "Software developer at florintech computer college (2022-2023)",
     "Higher National Diploma in Banking And Finance (2019-2021) ",
