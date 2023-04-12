@@ -6,7 +6,7 @@ type PreffeProps = {
     experiences: {
       role: string;
       description: string;
-      current: string;
+      current: boolean;
     }[];
   };
 };
