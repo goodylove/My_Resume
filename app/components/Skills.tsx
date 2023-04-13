@@ -1,4 +1,5 @@
 "use client";
+import React, { useState } from "react";
 
 type SkillProps = {
   data: {
@@ -12,17 +13,19 @@ type SkillProps = {
     }[];
   };
 };
-import React, { useState } from "react";
+type SkillCategory = "soft" | "hard";
+
 const Skill = ({ data }: SkillProps) => {
-  const [activeTab, setActiveTab] = useState<any>("soft");
-  const setBg = (active: any) =>
+  const [activeTab, setActiveTab] = useState<SkillCategory>("soft");
+  const setBg = (active: SkillCategory) =>
     activeTab === active ? "bg-yellow" : "bg-gray";
 
-  const setTab = (active: any) =>
+  const setTab = (active: SkillCategory) =>
     "soft" === active ? "text-left" : "text-right";
+  const typeProps: SkillCategory[] = ["soft", "hard"];
   const tab = (
     <div className="flex">
-      {["soft", "hard"].map((el) => (
+      {typeProps.map((el) => (
         <button
           key={el}
           type="button"
@@ -40,7 +43,7 @@ const Skill = ({ data }: SkillProps) => {
         activeTab === "soft" ? "justify-start" : "justify-end"
       }`}
     >
-      {[activeTab].map((item, inedx) => (
+      {data[activeTab].map((item, inedx) => (
         <li key={inedx} className="skill bg-blue">
           <span>{item.icon}</span>
           {item.text}
